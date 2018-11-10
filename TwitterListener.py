@@ -7,6 +7,7 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 
+import time
 import numpy as np
 import pandas as pd
 import json
@@ -117,6 +118,7 @@ class TwitterListener(StreamListener):
     def on_data(self,data):
         try:
         #NTS: raw data type is a string
+            print('tweet received: '+ time.time())
             with open(self.fetched_tweets_filename, 'w') as tf:
                 tf.write(data)
 
@@ -168,10 +170,10 @@ if __name__ == '__main__':
     twitter_streamer = TwitterStreamer()
     twitter_streamer.stream_tweets(fetched_tweets_filename, follow_list)
 
-    # # # read tweet from tweets.json
-    tweet_reader = TweetReader(fetched_tweets_filename)
-    username = tweet_reader.get_username()
-    print(username)
+    # # # # read tweet from tweets.json
+    # tweet_reader = TweetReader(fetched_tweets_filename)
+    # username = tweet_reader.get_username()
+    # print(username)
 
 
     # with open("json.json","r") as read_file:
@@ -182,7 +184,10 @@ if __name__ == '__main__':
 
     # tweet_info = TweetInfo(data)
 
-    #send response tweet
-    message = 'hellooooo auto response from python!'
-    cliente = TwitterClient()
-    cliente.twitter_client.update_status(username + ' ' + message)
+    # #send response tweet
+    # message = 'hellooooo auto response from python!'
+    # cliente = TwitterClient()
+    # cliente.twitter_client.update_status(username + ' ' + message)
+
+
+    
