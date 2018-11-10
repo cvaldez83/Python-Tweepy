@@ -1,6 +1,3 @@
-# YouTube Video: https://www.youtube.com/watch?v=WX0MDddgpA4
-# Github: https://github.com/vprusso/youtube_tutorials/tree/master/twitter_python/part_3_analyzing_tweet_data
-
 from tweepy import API
 from tweepy import Cursor
 from tweepy.streaming import StreamListener
